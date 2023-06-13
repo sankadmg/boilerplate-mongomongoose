@@ -119,10 +119,13 @@ const queryChain = (done) => {
     .limit(5)
     .select({ favoriteFoods: 0 })
     .exec(function (error, people) {
-      people.findOne({ favoriteFoods: foodToSearch }, function (err, data) {
-        if (err) return console.log(err);
-        done(null, data);
-      });
+      if (error) {
+        // Handle the error here
+        console.error(error);
+      } else {
+        // Query successful, use the 'people' array here
+        console.log(people);
+      }
     });
 };
 
