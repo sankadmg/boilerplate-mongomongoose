@@ -119,12 +119,7 @@ const queryChain = (done) => {
     .limit(5)
     .select({ favoriteFoods: 0 })
     .exec(function (error, people) {
-      if (error) {
-        console.error(error);
-      } else {
-        console.log(people);
-      }
-      done();
+      done(err, people);
     });
 };
 
