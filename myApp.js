@@ -116,14 +116,11 @@ const queryChain = (done) => {
 
   Person.find({ favoriteFoods: foodToSearch })
     .sort({ name: 1 })
-    .limit(5)
-    .select({ age: 0 })
-    .exec(function (error, people) {
-      if (err) {
-        done(err); // Pass the error to the 'done' callback
-      } else {
-        done(null, data); // Pass the retrieved data to the 'done' callback
-      }
+    .limit(3)
+    .select({ name: 1 })
+    .exec((err, success) => {
+      if (err) return console.error(err);
+      done(null, success);
     });
 };
 
