@@ -118,9 +118,9 @@ const queryChain = (done) => {
     .sort({ name: 1 })
     .limit(3)
     .select({ name: 1 })
-    .exec((err, success) => {
+    .exec((err, data) => {
       if (err) return console.error(err);
-      done(null, success);
+      done(null, data);
     });
 };
 
